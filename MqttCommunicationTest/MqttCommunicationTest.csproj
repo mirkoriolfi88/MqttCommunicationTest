@@ -41,6 +41,9 @@
     <Reference Include="System.Diagnostics.Tracer, Version=2.0.0.0, Culture=neutral, PublicKeyToken=173d89ffae9ce988, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Diagnostics.Tracer.2.0.8\lib\net45\System.Diagnostics.Tracer.dll</HintPath>
     </Reference>
+    <Reference Include="System.Net.Mqtt, Version=0.6.0.0, Culture=neutral, PublicKeyToken=ac60ebe5a5220e27, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Net.Mqtt.0.6.0-beta\lib\net46\System.Net.Mqtt.dll</HintPath>
+    </Reference>
     <Reference Include="System.Reactive, Version=4.0.0.0, Culture=neutral, PublicKeyToken=94bc3704cddfc263, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Reactive.4.0.0-preview.2.build.379\lib\net46\System.Reactive.dll</HintPath>
     </Reference>

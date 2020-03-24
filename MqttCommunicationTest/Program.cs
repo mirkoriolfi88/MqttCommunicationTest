@@ -11,27 +11,26 @@ namespace MqttCommunicationTest
 
         static void Main(string[] args)
         {
-            string message = "Test Message";
+            string message = "123456|RICONTROLLO_SI";
 
             Console.WriteLine("Hello, World!");
             // Create Client instance
-            MqttClient myClient = new MqttClient("127.0.0.1", 1883, false, null, null, MqttSslProtocols.None, null);
+            MqttClient myClient = new MqttClient("192.168.0.98", 1883, false, null, null, MqttSslProtocols.None, null);
 
             // Register to message received
-            myClient.MqttMsgPublishReceived += client_recievedMessage;
+            myClient.MqttMsgPublishReceived += Client_recievedMessage;
 
-            string clientId = Guid.NewGuid().ToString();
+            string clientId = "CASSA25_RETAILER055921";
             myClient.Connect(clientId);
 
             // Subscribe to topic
-            myClient.Subscribe(new string[] { "/testing" }, new byte[] { MqttMsgBase.QOS_LEVEL_EXACTLY_ONCE });
-
-            myClient.Publish("/testing", Encoding.ASCII.GetBytes(message));
+            myClient.Subscribe(new string[] { "/test/055921/25" }, new byte[] { MqttMsgBase.QOS_LEVEL_EXACTLY_ONCE });
+            myClient.Publish("/test/055921/25", Encoding.ASCII.GetBytes(message));
 
             Console.ReadLine();
         }
 
-        static void client_recievedMessage(object sender, MqttMsgPublishEventArgs e)
+        static void Client_recievedMessage(object sender, MqttMsgPublishEventArgs e)
         {
             // Handle message received
             var message = Encoding.Default.GetString(e.Message);
